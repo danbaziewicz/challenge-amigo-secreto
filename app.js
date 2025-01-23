@@ -33,8 +33,8 @@ function exibirListaAmigos(){
 }
 
 function sortearAmigo() {
-    if (listaNomeAmigo.length === 0) { // Verifica se a lista está vazia
-        alert(`Ops! Antes de sortear, adicione os nomes dos seus amigos!`);
+    if (listaNomeAmigo.length === 0 || listaNomeAmigo.length === 1) { // Verifica se a lista está vazia
+        alert(`Ops! Antes de sortear, adicione dois ou mais nomes dos seus amigos!`);
     } else {
         let indiceAleatorio = Math.floor(Math.random() * listaNomeAmigo.length); // Gera um índice aleatório
         let amigoSorteado = listaNomeAmigo[indiceAleatorio]; // Pega o nome do amigo no índice sorteado
@@ -59,8 +59,13 @@ function limparCampoResultado(){
     listItem.textContent = '';
 }
 
-
 function limparCampo(){
     let inputField = document.querySelector('input');
     inputField.value = '';
 }
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {  // Verifica se a tecla pressionada foi "Enter"
+        adicionarAmigo(); // Chama a função do sorteio
+    }
+});
