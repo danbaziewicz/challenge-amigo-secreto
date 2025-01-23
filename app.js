@@ -1,5 +1,5 @@
 let nomeAmigo = '';
-let ListaNomeAmigo = [];
+let listaNomeAmigo = [];
 
 function recebeNome(){
     nomeAmigo = document.querySelector('input').value;
@@ -11,11 +11,11 @@ function adicionarAmigo() {
     if (nomeAmigo == '') {
         alert('Ops! Digite o nome de um amigo!')
     } else {
-        if (ListaNomeAmigo.includes(nomeAmigo)){
+        if (listaNomeAmigo.includes(nomeAmigo)){
             alert(`${nomeAmigo} já foi incluído, tente adicionar algo mais para melhorar a identificação`)
         } else {
-            ListaNomeAmigo.push(nomeAmigo);
-            // console.log(ListaNomeAmigo)
+            listaNomeAmigo.push(nomeAmigo);
+            // console.log(listaNomeAmigo)
             limparCampo();
             exibirListaAmigos();
         }
@@ -23,12 +23,15 @@ function adicionarAmigo() {
 }
 
 function exibirListaAmigos(){
-    nomeAmigo = document.getElementById('listaAmigos');
-    nomeAmigo.innerHTML = ListaNomeAmigo;
-    console.log(`func exibirListaAmigos ${ListaNomeAmigo}`);
+    let listaUl = document.getElementById('listaAmigos');
+    let novoAmigo = listaNomeAmigo[listaNomeAmigo.length - 1]; // Pega o último nome adicionado
+    let listItem = document.createElement('li');
+    listItem.textContent = novoAmigo;
+    listaUl.appendChild(listItem);
 }
 
+
 function limparCampo(){
-    nomeAmigo = document.querySelector('input');
-    nomeAmigo.value = '';
+    let inputField = document.querySelector('input');
+    inputField.value = '';
 }
