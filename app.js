@@ -9,10 +9,10 @@ function recebeNome(){
 function adicionarAmigo() {
     recebeNome();
     if (nomeAmigo == '') {
-        alert('Por favor, insira um nome')
+        alert('Por favor, insira um nome');
     } else {
         if (listaNomeAmigo.includes(nomeAmigo)){
-            alert(`${nomeAmigo} já foi incluído, tente adicionar algo mais para melhorar a identificação`)
+            alert(`${nomeAmigo} já foi incluído, tente adicionar algo mais para melhorar a identificação`);
         } else {
             listaNomeAmigo.push(nomeAmigo);
             limparCampo();
